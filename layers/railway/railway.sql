@@ -28,7 +28,8 @@ SELECT osm_id,
        NULLIF(service, '') AS service,
        NULLIF(layer, 0) AS layer,
        NULLIF(usage, '') AS usage,
-       NULLIF(track_ref, '') AS track_ref
+       NULLIF(track_ref, '') AS track_ref,
+       maxspeed
 FROM (
 -- etldoc: osm_railway_linestring_gen_z4  ->  layer_railway:z4
          SELECT osm_id,
