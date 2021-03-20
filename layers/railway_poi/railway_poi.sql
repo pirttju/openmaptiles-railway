@@ -24,18 +24,8 @@ SELECT osm_id_hash AS osm_id,
        COALESCE(NULLIF(name_de, ''), name, name_en) AS name_de,
        tags,
        railway_poi_class(subclass, mapping_key) AS class,
-       CASE
-           WHEN subclass = 'information'
-               THEN NULLIF(information, '')
-           WHEN subclass = 'place_of_worship'
-               THEN NULLIF(religion, '')
-           WHEN subclass = 'pitch'
-               THEN NULLIF(sport, '')
-           ELSE subclass
-           END AS subclass,
+       subclass,
        NULLIF(layer, 0) AS layer,
-       "level",
-       CASE WHEN indoor = TRUE THEN 1 END AS indoor,
        row_number() OVER (
            PARTITION BY LabelGrid(geometry, 100 * pixel_width)
            ORDER BY CASE WHEN name = '' THEN 2000 ELSE railway_poi_class_rank(poi_class(subclass, mapping_key)) END ASC
