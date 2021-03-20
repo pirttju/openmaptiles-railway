@@ -35,7 +35,7 @@ generalized_tables:
 # etldoc: osm_railway_linestring_gen_z11 -> osm_railway_linestring_gen_z10
   railway_linestring_gen_z10:
     source: railway_linestring_gen_z11
-    sql_filter: railway IS NOT 'tram' AND service=''
+    sql_filter: railway <> 'tram' AND service=''
     tolerance: ZRES11
 
 # etldoc: osm_railway_linestring_gen_z12 -> osm_railway_linestring_gen_z11
