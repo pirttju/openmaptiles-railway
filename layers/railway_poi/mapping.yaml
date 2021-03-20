@@ -1,0 +1,91 @@
+
+# imposm3 mapping file for https://github.com/osm2vectortiles/imposm3
+# Warning: this is not the official imposm3
+
+# railway values , see http://taginfo.openstreetmap.org/keys/railway#values
+def_railway_poi_mapping: &railway_poi_mapping
+  railway:
+    - crossing
+    - level_crossing
+    - railway_crossing
+    - tram_crossing
+    - tram_level_crossing
+    - subway_entrance
+    - train_station_entrance
+    - station
+    - halt
+    - stop
+    - tram_stop
+    - yard
+    - hump_yard
+    - service_station
+    - technical_station
+    - workshop
+    - site
+    - junction
+    - spur_junction
+    - crossover
+    - crossing_box
+    - signal_box
+    - signal
+    - vacancy_detection
+    - balise_group
+    - switch
+    - key_switch
+    - derail
+    - rail_brake
+    - buffer_stop
+    - milestone
+    - phone
+    - radio
+    - power_supply
+    - fuel
+    - loading_ramp
+    - owner_change
+    - ventilation_shaft
+
+def_railway_poi_fields: &railway_poi_fields
+  - name: osm_id
+    type: id
+  - name: geometry
+    type: geometry
+  - name: name
+    key: name
+    type: string
+  - name: name_en
+    key: name:en
+    type: string
+  - name: name_de
+    key: name:de
+    type: string
+  - name: tags
+    type: hstore_tags
+  - name: subclass
+    type: mapping_value
+  - name: mapping_key
+    type: mapping_key
+  - name: station
+    key: station
+    type: string
+  - name: information
+    key: information
+    type: string
+  - name: uic_ref
+    key: uic_ref
+    type: string
+  - name: layer
+    key: layer
+    type: integer
+
+tables:
+  # etldoc: imposm3 -> osm_railway_poi_point
+  railway_poi_point:
+    type: point
+    columns: *railway_poi_fields
+    mapping: *railway_poi_mapping
+
+  # etldoc: imposm3 -> osm_railway_poi_polygon
+  railway_poi_polygon:
+    type: polygon
+    columns: *railway_poi_fields
+    mapping: *railway_poi_mapping

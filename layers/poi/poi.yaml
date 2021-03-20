@@ -35,17 +35,10 @@ layer:
           subclass: ['park', 'bbq']
         bus:
           subclass: ['bus_stop', 'bus_station']
-        railway:
-          - __AND__:
-              subclass: 'station'
-              mapping_key: 'railway'
-          - subclass: ['halt', 'tram_stop', 'subway']
         aerialway:
           __AND__:
             subclass: 'station'
             mapping_key: 'aerialway'
-        entrance:
-          subclass: ['subway_entrance', 'train_station_entrance']
         campsite:
           subclass: ['camp_site', 'caravan_site']
         laundry:
@@ -103,7 +96,6 @@ layer:
           [`information`](http://wiki.openstreetmap.org/wiki/Key:information),
           [`landuse`](http://wiki.openstreetmap.org/wiki/Key:landuse),
           [`leisure`](http://wiki.openstreetmap.org/wiki/Key:leisure),
-          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway),
           [`shop`](http://wiki.openstreetmap.org/wiki/Key:shop),
           [`sport`](http://wiki.openstreetmap.org/wiki/Key:sport),
           [`station`](http://wiki.openstreetmap.org/wiki/Key:station),
