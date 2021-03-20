@@ -28,7 +28,7 @@ SELECT osm_id_hash AS osm_id,
        NULLIF(layer, 0) AS layer,
        row_number() OVER (
            PARTITION BY LabelGrid(geometry, 100 * pixel_width)
-           ORDER BY CASE WHEN name = '' THEN 2000 ELSE railway_poi_class_rank(poi_class(subclass, mapping_key)) END ASC
+           ORDER BY CASE WHEN name = '' THEN 2000 ELSE railway_poi_class_rank(railway_poi_class(subclass, mapping_key)) END ASC
            )::int AS "rank"
 FROM (
          -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z14_
