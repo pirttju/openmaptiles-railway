@@ -47,10 +47,13 @@ layer:
     track_ref:
       description: |
           Original value of the [`railway:track_ref`](http://wiki.openstreetmap.org/wiki/Key:railway:track_ref) tag.
+    maxspeed:
+      description: |
+          Original value of the [`maxspeed`](http://wiki.openstreetmap.org/wiki/Key:maxspeed) tag.
   datasource:
     geometry_field: geometry
     srid: 900913
-    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, track_ref FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, track_ref, maxspeed FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
 schema:
   - ./class.sql
   - ./railway.sql

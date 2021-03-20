@@ -103,6 +103,9 @@ tables:
     - key: usage
       name: usage
       type: string
+    - key: maxspeed
+      name: maxspeed
+      type: string
     mapping:
       railway:
       - rail
