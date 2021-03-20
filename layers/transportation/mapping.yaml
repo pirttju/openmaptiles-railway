@@ -1,3 +1,4 @@
+generalized_tables:
 # etldoc: osm_aerialway_linestring -> osm_aerialway_linestring_gen_z12
   aerialway_linestring_gen_z12:
     source: aerialway_linestring
