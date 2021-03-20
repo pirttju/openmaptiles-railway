@@ -149,7 +149,7 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z10
          WHERE zoom_level = 10
-           AND railway IS NOT 'tram'
+           AND railway <> 'tram'
            AND service = ''
          UNION ALL
 
