@@ -1,4 +1,8 @@
-## OpenMapTiles [![Build Status](https://github.com/openmaptiles/openmaptiles/workflows/OMT_CI/badge.svg?branch=master)](https://github.com/openmaptiles/openmaptiles/actions)
+## OpenMapTiles-Railway
+
+OpenMapTiles-Railway is a fork of OpenMapTiles focusing on railways.
+
+## OpenMapTiles
 
 OpenMapTiles is an extensible and open tile schema based on the OpenStreetMap. This project is used to generate vector tiles for online zoomable maps. OpenMapTiles is about creating a beautiful basemaps with general layers containing topographic information. More information [openmaptiles.org](https://openmaptiles.org/) and [maptiler.com/data/](https://www.maptiler.com/data/).
 
@@ -83,7 +87,7 @@ make
 ```
 
 You can execute the following manual steps (for better understanding)
-or use the provided `quickstart.sh` script to automatically download and import given area. If area is not given, albania will be imported.
+or use the provided `quickstart.sh` script to automatically download and import given area. If area is not given, finland will be imported.
 
 ```
 ./quickstart.sh <area>
@@ -106,7 +110,7 @@ make import-data
 Download OpenStreetMap data extracts from any source like [Geofabrik](http://download.geofabrik.de/), and store the PBF file in the `./data` directory. To use a specific download source, use `download-geofabrik`, `download-bbbike`, or `download-osmfr`, or use `download` to make it auto-pick the area. You can use `area=planet` for the entire OSM dataset (very large).  Note that if you have more than one `data/*.osm.pbf` file, every `make` command will always require `area=...` parameter (or you can just `export area=...` first).
 
 ```bash
-make download area=albania
+make download area=finland
 ```
 
 [Import OpenStreetMap data](https://github.com/openmaptiles/openmaptiles-tools/tree/master/docker/import-osm) with the mapping rules from

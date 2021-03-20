@@ -47,7 +47,7 @@ fi
 
 if [ $# -eq 0 ]; then
   #  default test area
-  export area=albania
+  export area=finland
   echo "No parameter - set area=$area "
 else
   export area=$1
@@ -193,7 +193,7 @@ if [[ "$USE_PRELOADED_IMAGE" == true ]]; then
   echo "      :   includes all data from the import-data image"
   echo "      :"
   echo "      : Use the --empty flag to start with an empty database:"
-  echo "      :   ./quickstart.sh --empty albania "
+  echo "      :   ./quickstart.sh --empty finland "
   echo "      : If desired, you can manually import data by using these commands:"
   echo "      :   make destroy-db"
   echo "      :   make start-db"

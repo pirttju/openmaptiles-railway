@@ -1,0 +1,59 @@
+layer:
+  id: "railway"
+  description: |
+      **railway** contains railways.
+  buffer_size: 4
+  srs: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over
+  fields:
+    class:
+      description: |
+          Class is derived from the value of the [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
+    subclass:
+      description: |
+          Distinguish more specific classes of railway:
+          Subclass is value of the
+          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
+      values:
+        - rail
+        - narrow_gauge
+        - light_rail
+        - subway
+        - tram
+        - disused
+        - abandoned
+        - razed
+        - proposed
+        - construction
+    brunnel:
+      description: |
+          Mark whether way is a tunnel or bridge.
+      values:
+        - bridge
+        - tunnel
+    service:
+      description: |
+          Original value of the [`service`](http://wiki.openstreetmap.org/wiki/Key:service) tag.
+      values:
+        - spur
+        - yard
+        - siding
+        - crossover
+    layer:
+      description: |
+          Original value of the [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.
+    usage:
+      description: |
+          Original value of the [`usage`](http://wiki.openstreetmap.org/wiki/Key:usage) tag.
+    track_ref:
+      description: |
+          Original value of the [`railway:track_ref`](http://wiki.openstreetmap.org/wiki/Key:railway:track_ref) tag.
+  datasource:
+    geometry_field: geometry
+    srid: 900913
+    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, track_ref FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
+schema:
+  - ./class.sql
+  - ./railway.sql
+datasources:
+  - type: imposm3
+    mapping_file: ./mapping.yaml

@@ -1,7 +1,7 @@
 layer:
   id: "transportation"
   description: |
-      **transportation** contains roads, railways, aerial ways, and shipping
+      **transportation** contains roads, aerial ways, and shipping
        lines.
       This layer is directly derived from the OSM road hierarchy.
       At lower zoom levels major highways from Natural Earth are used.
@@ -14,11 +14,10 @@ layer:
   fields:
     class:
       description: |
-          Distinguish between more and less important roads or railways and roads under construction.
+          Distinguish between more and less important roads and roads under construction.
           Class is derived from the value of the
           [`highway`](http://wiki.openstreetmap.org/wiki/Key:highway),
           [`construction`](http://wiki.openstreetmap.org/wiki/Key:construction),
-          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway),
           [`aerialway`](http://wiki.openstreetmap.org/wiki/Key:aerialway),
           [`route`](http://wiki.openstreetmap.org/wiki/Key:route) tag (for
           shipping ways), or
@@ -89,20 +88,11 @@ layer:
             construction: raceway
     subclass:
       description: |
-          Distinguish more specific classes of railway and path:
+          Distinguish more specific classes of path:
           Subclass is value of the
-          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway),
           [`highway`](http://wiki.openstreetmap.org/wiki/Key:highway) (for paths), or
           [`public_transport`](http://wiki.openstreetmap.org/wiki/Key:public_transport) (for platforms) tag.
       values:
-      - rail
-      - narrow_gauge
-      - preserved
-      - funicular
-      - subway
-      - light_rail
-      - monorail
-      - tram
       - pedestrian
       - path
       - footway
@@ -133,10 +123,6 @@ layer:
       description: |
           Original value of the [`service`](http://wiki.openstreetmap.org/wiki/Key:service) tag.
       values:
-      - spur
-      - yard
-      - siding
-      - crossover
       - driveway
       - alley
       - parking_aisle

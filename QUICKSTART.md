@@ -34,7 +34,7 @@
 
 Important:  The ./quickstart.sh is for small extracts - not optimal for a Planet rendering !!
 
-### First experiment - with `albania` ( small extracts! )
+### First experiment - with `finland` ( small extracts! )
 
 ```bash
 git clone https://github.com/openmaptiles/openmaptiles.git
@@ -426,7 +426,7 @@ Hints for designers:
 
 Hints for developers:
   make                                 # build source code
-  make download-geofabrik area=albania # download OSM data from geofabrik, and create config file
+  make download-geofabrik area=finland # download OSM data from geofabrik, and create config file
   make psql                            # start PostgreSQL console
   make psql-list-tables                # list all PostgreSQL tables
   make psql-vacuum-analyze             # PostgreSQL: VACUUM ANALYZE
