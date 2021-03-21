@@ -1,6 +1,8 @@
 
 # imposm3 mapping file for https://github.com/osm2vectortiles/imposm3
 # Warning: this is not the official imposm3
+tags:
+  load_all: true
 
 tables:
   # etldoc: imposm3 -> osm_railway_signal_point

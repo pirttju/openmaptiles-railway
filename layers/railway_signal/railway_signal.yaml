@@ -1,6 +1,3 @@
-tags:
-  load_all: true
-
 layer:
   id: "railway_signal"
   description: |
