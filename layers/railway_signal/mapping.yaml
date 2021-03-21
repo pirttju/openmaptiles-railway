@@ -1,6 +1,42 @@
-
 # imposm3 mapping file for https://github.com/osm2vectortiles/imposm3
 # Warning: this is not the official imposm3
+tags:
+  include:
+  - railway:signal:main
+  - railway:signal:main_repeated
+  - railway:signal:distant
+  - railway:signal:minor
+  - railway:signal:minor_distant
+  - railway:signal:combined
+  - railway:signal:shunting
+  - railway:signal:crossing
+  - railway:signal:crossing_distant
+  - railway:signal:crossing_info
+  - railway:signal:crossing_hint
+  - railway:signal:electricity
+  - railway:signal:humping
+  - railway:signal:speed_limit
+  - railway:signal:speed_limit_distant
+  - railway:signal:whistle
+  - railway:signal:ring
+  - railway:signal:route
+  - railway:signal:route_distant
+  - railway:signal:wrong_road
+  - railway:signal:stop
+  - railway:signal:stop_demand
+  - railway:signal:station_distant
+  - railway:signal:radio
+  - railway:signal:departure
+  - railway:signal:resetting_switch
+  - railway:signal:resetting_switch_distant
+  - railway:signal:snowplow
+  - railway:signal:short_route
+  - railway:signal:brake_test
+  - railway:signal:fouling_point
+  - railway:signal:helper_engine
+  - railway:signal:train_protection
+  - railway:signal:steam_locomotive
+
 tables:
   # etldoc: imposm3 -> osm_railway_signal_point
   railway_signal_point:
