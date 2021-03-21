@@ -27,7 +27,7 @@ SELECT osm_id_hash AS osm_id,
     tags,
     class,
     COALESCE(NULLIF(ref, ''), railway_ref) AS ref,
-    COALESCE(NULLIF(railway_position, '', railway_position_exact) AS position,
+    COALESCE(NULLIF(railway_position, ''), railway_position_exact) AS position,
     NULLIF(uic_ref, '') AS uic_ref,
     NULLIF(layer, 0) AS layer,
     row_number() OVER (
