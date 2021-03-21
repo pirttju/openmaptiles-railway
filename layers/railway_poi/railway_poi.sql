@@ -31,8 +31,8 @@ SELECT osm_id_hash AS osm_id,
     COALESCE(NULLIF(ref,''), NULLIF(railway_ref,'')) AS ref,
     COALESCE(NULLIF(railway_position,''), NULLIF(railway_position_exact,'')) AS railway_position,
     NULLIF(uic_ref, '') AS uic_ref,
-    local_operated,
-    resetting,
+    NULLIF(local_operated, FALSE) AS local_operated,
+    NULLIF(resetting, FALSE) AS resetting,
     NULLIF(layer, 0) AS layer,
     row_number() OVER (
         PARTITION BY LabelGrid(geometry, 100 * pixel_width)
