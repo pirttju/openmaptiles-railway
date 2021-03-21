@@ -12,14 +12,23 @@ layer:
       description: |
           Original value of the
           [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
+    ref:
+      description: |
+          Original value of [`ref`] or [`railway:ref`] tag.
+    position:
+      description: |
+          Original value of [`railway:position`] or [`railway:position:exact`] tag.
+    uic_ref:
+      description: |
+          Original value of [`uic_ref`](http://wiki.openstreetmap.org/wiki/Key:uic_ref) tag.
+    layer:
+      description: |
+          Original value of [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.
     rank: |
         The POIs are ranked ascending according to their importance within a grid. The `rank` value shows the
         local relative importance of a POI within it's cell in the grid. This can be used to reduce label density at *z14*.
         Since all POIs already need to be contained at *z14* you can use `less than rank=10` epxression to limit
         POIs. At some point like *z17* you can show all POIs.
-    layer:
-      description: |
-          Original value of [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.
   datasource:
     geometry_field: geometry
     key_field: osm_id
