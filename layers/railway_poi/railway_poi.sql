@@ -32,7 +32,7 @@ SELECT osm_id_hash AS osm_id,
     NULLIF(layer, 0) AS layer,
     row_number() OVER (
         PARTITION BY LabelGrid(geometry, 100 * pixel_width)
-        ORDER BY railway_poi_class_rank(railway) ASC
+        ORDER BY railway_poi_class_rank(class) ASC
         )::int AS "rank"
 FROM (
         -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z8
