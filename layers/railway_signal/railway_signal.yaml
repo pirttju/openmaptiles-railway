@@ -1,5 +1,5 @@
 layer:
-  id: "railway_poi"
+  id: "railway_signal"
   description: |
       Railway [Points of interests](http://wiki.openstreetmap.org/wiki/Points_of_interest).
   buffer_size: 64
