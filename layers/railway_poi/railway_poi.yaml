@@ -10,19 +10,8 @@ layer:
     name_de: German name `name:de` if available, otherwise `name` or `name:en`.
     class:
       description: |
-        More general classes of POIs.
-      values:
-        railway:
-          - __AND__:
-              subclass: 'station'
-              mapping_key: 'railway'
-          - subclass: ['halt', 'tram_stop', 'subway']
-        entrance:
-          subclass: ['subway_entrance', 'train_station_entrance']
-    subclass:
-      description: |
           Original value of the
-          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.  Use this to do more precise styling.
+          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
     rank: |
         The POIs are ranked ascending according to their importance within a grid. The `rank` value shows the
         local relative importance of a POI within it's cell in the grid. This can be used to reduce label density at *z14*.
@@ -36,7 +25,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, name, name_en, name_de, {name_languages}, class, subclass, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, name, name_en, name_de, {tags}, class, ref, position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
   - ./railway_poi.sql

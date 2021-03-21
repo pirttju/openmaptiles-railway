@@ -2,77 +2,94 @@
 # imposm3 mapping file for https://github.com/osm2vectortiles/imposm3
 # Warning: this is not the official imposm3
 
-# railway values , see http://taginfo.openstreetmap.org/keys/railway#values
+# OpenRailwayMap Tagging, see https://wiki.openstreetmap.org/wiki/OpenRailwayMap/Tagging
 def_railway_poi_mapping: &railway_poi_mapping
   railway:
-    - crossing
-    - level_crossing
+    - switch
     - railway_crossing
-    - tram_crossing
-    - tram_level_crossing
-    - subway_entrance
-    - train_station_entrance
+    - derail
+    - buffer_stop
+    - vacancy_detection
+    - lubricator
+    - level_crossing
+    - crossing
+    - isolated_track_section
+    - owner_change
+    - border
+    - milestone
+    - signal
+    - signal_box
+    - crossing_box
+    - blockpost
     - station
     - halt
-    - stop
     - tram_stop
     - yard
-    - hump_yard
     - service_station
-    - technical_station
-    - workshop
-    - site
     - junction
-    - spur_junction
     - crossover
-    - crossing_box
-    - signal_box
-    - signal
-    - vacancy_detection
-    - balise_group
-    - switch
-    - key_switch
-    - derail
-    - rail_brake
-    - buffer_stop
-    - milestone
+    - spur_junction
+    - site
+    - stop
+    - subway_entrance
     - phone
-    - radio
-    - power_supply
+    - water_tower
     - fuel
+    - water_crane
+    - coaling_facility
+    - sand_store
+    - waste_disposal
+    - compressed_air_supply
+    - power_supply
+    - preheating
+    - wash
+    - pit
+    - loading_gauge    
+    - hump_yard
+    - rail_brake
+    - engine_shed
+    - workshop
+    - radio
+    - turntable
+    - defect_detector
+    - traverser
     - loading_ramp
-    - owner_change
-    - ventilation_shaft
+    - track_scale
+    - carrier_truck_pit
+    - gauge_conversion
+    - museum
+    - container_terminal
+    - car_shuttle
+    - rolling_highway
 
 def_railway_poi_fields: &railway_poi_fields
   - name: osm_id
     type: id
   - name: geometry
     type: geometry
+  - name: class
+    key: railway
+    type: string
   - name: name
     key: name
     type: string
-  - name: name_en
-    key: name:en
+  - name: ref
+    key: ref
     type: string
-  - name: name_de
-    key: name:de
+  - name: railway_ref
+    key: railway:ref
     type: string
-  - name: tags
-    type: hstore_tags
-  - name: subclass
-    type: mapping_value
-  - name: mapping_key
-    type: mapping_key
-  - name: station
-    key: station
+  - name: railway_position
+    key: railway:position
     type: string
-  - name: information
-    key: information
+  - name: railway_position_exact
+    key: railway:position:exact
     type: string
   - name: uic_ref
     key: uic_ref
     type: string
+  - name: tags
+    type: hstore_tags
   - name: layer
     key: layer
     type: integer
