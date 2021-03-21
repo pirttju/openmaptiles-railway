@@ -38,7 +38,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, class, subclass, signal_type, ref, railway_position, signal_position, direction, catenary_mast, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, class, subclass, signal_type, ref, railway_position, signal_position, direction, catenary_mast, layer, rank FROM layer_railway_signal(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
   - ./railway_signal.sql
