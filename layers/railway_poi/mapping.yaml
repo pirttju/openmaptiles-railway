@@ -17,7 +17,6 @@ def_railway_poi_mapping: &railway_poi_mapping
     - owner_change
     - border
     - milestone
-    - signal
     - signal_box
     - crossing_box
     - blockpost

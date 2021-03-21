@@ -1,0 +1,47 @@
+layer:
+  id: "railway_poi"
+  description: |
+      Railway [Points of interests](http://wiki.openstreetmap.org/wiki/Points_of_interest).
+  buffer_size: 64
+  srs: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over
+  fields:
+    class:
+      description: |
+          Original value of the
+          [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
+    subclass:
+      description: The signal category.
+    signal_type:
+      description: The type of the signal.
+    ref:
+      description: |
+          Original value of [`ref`] tag.
+    railway_position:
+      description: |
+          Original value of [`railway:position`] or [`railway:position:exact`] tag.
+    signal_position:
+      description: Indicates the location of the signal in references to the track.
+    direction:
+      description: Which direction is the POI facing?
+    catenary_mast:
+      description: Is the signal attached to a catenary mast?
+    layer:
+      description: |
+          Original value of [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.
+    rank: |
+        The POIs are ranked ascending according to their importance within a grid. The `rank` value shows the
+        local relative importance of a POI within it's cell in the grid. This can be used to reduce label density at *z14*.
+        Since all POIs already need to be contained at *z14* you can use `less than rank=10` epxression to limit
+        POIs. At some point like *z17* you can show all POIs.
+  datasource:
+    geometry_field: geometry
+    key_field: osm_id
+    key_field_as_attribute: no
+    srid: 900913
+    query: (SELECT osm_id, geometry, name, name_en, name_de, tags, class, ref, railway_position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+schema:
+  - ./class.sql
+  - ./railway_poi.sql
+datasources:
+  - type: imposm3
+    mapping_file: ./mapping.yaml

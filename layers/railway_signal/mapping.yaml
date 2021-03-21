@@ -1,0 +1,42 @@
+
+# imposm3 mapping file for https://github.com/osm2vectortiles/imposm3
+# Warning: this is not the official imposm3
+
+tables:
+  # etldoc: imposm3 -> osm_railway_signal_point
+  railway_signal_point:
+    type: point
+    mapping:
+      railway:
+      - signal
+    columns:
+    - name: osm_id
+      type: id
+    - name: geometry
+      type: geometry
+    - name: class
+      key: railway
+      type: string
+    - name: ref
+      key: ref
+      type: string
+    - name: railway_position
+      key: railway:position
+      type: string
+    - name: railway_position_exact
+      key: railway:position:exact
+      type: string
+    - name: signal_position
+      key: railway:signal:position
+      type: string
+    - name: direction
+      key: railway:signal:direction
+      type: string
+    - name: catenary_mast
+      key: railway:signal:catenary_mast
+      type: bool
+    - name: tags
+      type: hstore_tags
+    - name: layer
+      key: layer
+      type: integer

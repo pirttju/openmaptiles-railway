@@ -23,7 +23,6 @@ SELECT CASE class
            WHEN 'crossing_box' THEN 300
            WHEN 'signal_box' THEN 310
            WHEN 'blockpost' THEN 320
-           WHEN 'signal' THEN 330
            WHEN 'switch' THEN 400
            WHEN 'derail' THEN 490
            WHEN 'phone' THEN 500
