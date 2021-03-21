@@ -73,6 +73,12 @@ def_railway_poi_fields: &railway_poi_fields
   - name: name
     key: name
     type: string
+  - name: name_en
+    key: name:en
+    type: string
+  - name: name_de
+    key: name:de
+    type: string
   - name: ref
     key: ref
     type: string
