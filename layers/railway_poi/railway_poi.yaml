@@ -15,7 +15,7 @@ layer:
     ref:
       description: |
           Original value of [`ref`] or [`railway:ref`] tag.
-    position:
+    railway_position:
       description: |
           Original value of [`railway:position`] or [`railway:position:exact`] tag.
     uic_ref:
@@ -34,7 +34,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, name, name_en, name_de, tags, class, ref, position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, name, name_en, name_de, tags, class, ref, railway_position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
   - ./railway_poi.sql
