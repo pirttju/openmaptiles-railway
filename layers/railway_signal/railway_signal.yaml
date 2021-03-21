@@ -38,10 +38,10 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, name, name_en, name_de, tags, class, ref, railway_position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, class, subclass, signal_type, ref, railway_position, signal_position, direction, catenary_mast, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
-  - ./railway_poi.sql
+  - ./railway_signal.sql
 datasources:
   - type: imposm3
     mapping_file: ./mapping.yaml
