@@ -99,9 +99,6 @@ def_railway_poi_fields: &railway_poi_fields
   - name: resetting
     key: railway:switch:resetting
     type: string
-  - name: direction
-    key: railway:signal:direction
-    type: string
   - name: tags
     type: hstore_tags
   - name: layer

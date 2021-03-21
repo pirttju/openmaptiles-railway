@@ -25,8 +25,6 @@ layer:
       description: Is the device operated locally?
     resetting:
       description: Is the device resetting?
-    direction:
-      description: Which direction is the POI facing?
     layer:
       description: |
           Original value of [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.
@@ -40,7 +38,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, name, name_en, name_de, class, ref, railway_position, uic_ref, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, name, name_en, name_de, class, ref, railway_position, uic_ref, local_operated, resetting, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
   - ./railway_poi.sql
