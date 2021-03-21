@@ -8,7 +8,6 @@ layer:
     name: The OSM [`name`](http://wiki.openstreetmap.org/wiki/Key:name) value of the POI.
     name_en: English name `name:en` if available, otherwise `name`.
     name_de: German name `name:de` if available, otherwise `name` or `name:en`.
-    tags: Tags hstore.
     class:
       description: |
           Original value of the
@@ -22,6 +21,12 @@ layer:
     uic_ref:
       description: |
           Original value of [`uic_ref`](http://wiki.openstreetmap.org/wiki/Key:uic_ref) tag.
+    local_operated:
+      description: Is the device operated locally?
+    resetting:
+      description: Is the device resetting?
+    direction:
+      description: Which direction is the POI facing?
     layer:
       description: |
           Original value of [`layer`](http://wiki.openstreetmap.org/wiki/Key:layer) tag.

@@ -94,6 +94,15 @@ def_railway_poi_fields: &railway_poi_fields
   - name: uic_ref
     key: uic_ref
     type: string
+  - name: local_operated
+    key: railway:local_operated
+    type: string
+  - name: resetting
+    key: railway:switch:resetting
+    type: string
+  - name: direction
+    key: railway:signal:direction
+    type: string
   - name: tags
     type: hstore_tags
   - name: layer

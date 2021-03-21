@@ -14,6 +14,9 @@ CREATE OR REPLACE FUNCTION layer_railway_poi(bbox geometry, zoom_level integer, 
                 ref      text,
                 railway_position text,
                 uic_ref  text,
+                local_operated text,
+                resetting text,
+                direction text,
                 layer    integer,
                 "rank"   int
             )
@@ -29,6 +32,9 @@ SELECT osm_id_hash AS osm_id,
     COALESCE(NULLIF(ref, ''), railway_ref) AS ref,
     COALESCE(NULLIF(railway_position, ''), railway_position_exact) AS railway_position,
     NULLIF(uic_ref, '') AS uic_ref,
+    local_operated,
+    resetting,
+    direction,
     NULLIF(layer, 0) AS layer,
     row_number() OVER (
         PARTITION BY LabelGrid(geometry, 100 * pixel_width)
