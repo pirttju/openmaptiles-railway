@@ -95,10 +95,10 @@ def_railway_poi_fields: &railway_poi_fields
     type: string
   - name: local_operated
     key: railway:local_operated
-    type: string
+    type: bool
   - name: resetting
     key: railway:switch:resetting
-    type: string
+    type: bool
   - name: tags
     type: hstore_tags
   - name: layer
