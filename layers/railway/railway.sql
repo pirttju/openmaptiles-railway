@@ -44,6 +44,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -63,6 +65,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -82,6 +86,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -101,6 +107,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -120,6 +128,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -139,6 +149,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -158,6 +170,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -176,6 +190,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -193,6 +209,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
@@ -210,6 +228,8 @@ FROM (
                 is_tunnel,
                 layer,
                 usage,
+                name,
+                ref,
                 track_ref,
                 maxspeed,
                 z_order
