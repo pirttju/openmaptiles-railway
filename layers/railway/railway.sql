@@ -11,6 +11,8 @@ CREATE OR REPLACE FUNCTION layer_railway(bbox geometry, zoom_level int)
                 service   text,
                 layer     int,
                 usage     text,
+                name      text,
+                ref       text,
                 track_ref text,
                 maxspeed  text
             )
@@ -28,6 +30,8 @@ SELECT osm_id,
        NULLIF(service, '') AS service,
        NULLIF(layer, 0) AS layer,
        NULLIF(usage, '') AS usage,
+       NULLIF(name, '') AS name,
+       NULLIF(ref, '') AS ref,
        NULLIF(track_ref, '') AS track_ref,
        maxspeed
 FROM (

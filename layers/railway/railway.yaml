@@ -44,6 +44,12 @@ layer:
     usage:
       description: |
           Original value of the [`usage`](http://wiki.openstreetmap.org/wiki/Key:usage) tag.
+    name:
+      description: |
+          Original value of the [`name`](http://wiki.openstreetmap.org/wiki/Key:name) tag.
+    ref:
+      description: |
+          Original value of the [`ref`](http://wiki.openstreetmap.org/wiki/Key:ref) tag.
     track_ref:
       description: |
           Original value of the [`railway:track_ref`](http://wiki.openstreetmap.org/wiki/Key:railway:track_ref) tag.
@@ -53,7 +59,7 @@ layer:
   datasource:
     geometry_field: geometry
     srid: 900913
-    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, track_ref, maxspeed FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, name, ref, track_ref, maxspeed FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
 schema:
   - ./class.sql
   - ./railway.sql
