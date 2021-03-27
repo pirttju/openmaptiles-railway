@@ -142,6 +142,7 @@ FROM (
          WHERE zoom_level = 9
            AND service = ''
            AND usage IN ('main', 'branch')
+           AND railway NOT IN ('light_rail', 'subway')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z10  ->  layer_railway:z10
@@ -176,7 +177,7 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z11
          WHERE zoom_level = 11
-           AND railway IN ('rail', 'narrow_gauge', 'light_rail', 'tram', 'disused', 'abandoned', 'razed', 'proposed', 'construction')
+           AND railway IN ('rail', 'narrow_gauge', 'light_rail', 'subway', 'tram', 'disused', 'abandoned', 'razed', 'proposed', 'construction')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z12  ->  layer_railway:z12

@@ -29,7 +29,7 @@ generalized_tables:
 # etldoc: osm_railway_linestring_gen_z10 -> osm_railway_linestring_gen_z9
   railway_linestring_gen_z9:
     source: railway_linestring_gen_z10
-    sql_filter: usage IN ('main', 'branch')
+    sql_filter: usage IN ('main', 'branch') AND railway NOT IN ('light_rail', 'subway')
     tolerance: ZRES10
 
 # etldoc: osm_railway_linestring_gen_z11 -> osm_railway_linestring_gen_z10
@@ -41,7 +41,7 @@ generalized_tables:
 # etldoc: osm_railway_linestring_gen_z12 -> osm_railway_linestring_gen_z11
   railway_linestring_gen_z11:
     source: railway_linestring_gen_z12
-    sql_filter: railway IN ('rail', 'narrow_gauge', 'light_rail', 'tram')
+    sql_filter: railway IN ('rail', 'narrow_gauge', 'light_rail', 'subway', 'tram')
     tolerance: ZRES12
 
 # etldoc: osm_railway_linestring -> osm_railway_linestring_gen_z12
