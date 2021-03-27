@@ -14,6 +14,7 @@ CREATE OR REPLACE FUNCTION layer_railway_poi(bbox geometry, zoom_level integer, 
                 ref      text,
                 railway_position text,
                 uic_ref  text,
+                station  text,
                 local_operated boolean,
                 resetting boolean,
                 layer    integer,
@@ -28,9 +29,10 @@ SELECT osm_id_hash AS osm_id,
     COALESCE(NULLIF(name_de, ''), NULLIF(name,''), NULLIF(name_en,'')) AS name_de,
     tags,
     class,
-    COALESCE(NULLIF(ref,''), NULLIF(railway_ref,'')) AS ref,
+    COALESCE(NULLIF(railway_ref,''), NULLIF(ref,'')) AS ref,
     COALESCE(NULLIF(railway_position,''), NULLIF(railway_position_exact,'')) AS railway_position,
     NULLIF(uic_ref, '') AS uic_ref,
+    NULLIF(station, '') AS station,
     NULLIF(local_operated, FALSE) AS local_operated,
     NULLIF(resetting, FALSE) AS resetting,
     NULLIF(layer, 0) AS layer,
@@ -47,6 +49,7 @@ FROM (
         WHERE geometry && bbox
           AND zoom_level BETWEEN 8 AND 9
           AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site')
+          AND station NOT IN ('subway', 'light_rail')
 
         UNION ALL
 

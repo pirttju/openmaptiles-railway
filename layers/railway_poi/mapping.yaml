@@ -93,6 +93,9 @@ def_railway_poi_fields: &railway_poi_fields
   - name: uic_ref
     key: uic_ref
     type: string
+  - name: station
+    key: station
+    type: string
   - name: local_operated
     key: railway:local_operated
     type: bool

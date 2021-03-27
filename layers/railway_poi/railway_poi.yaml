@@ -14,13 +14,16 @@ layer:
           [`railway`](http://wiki.openstreetmap.org/wiki/Key:railway) tag.
     ref:
       description: |
-          Original value of [`ref`] or [`railway:ref`] tag.
+          Original value of [`railway:ref`] or [`ref`] tag.
     railway_position:
       description: |
           Original value of [`railway:position`] or [`railway:position:exact`] tag.
     uic_ref:
       description: |
           Original value of [`uic_ref`](http://wiki.openstreetmap.org/wiki/Key:uic_ref) tag.
+    station:
+      description: |
+          Original value of [`station`](http://wiki.openstreetmap.org/wiki/Key:station) tag.
     local_operated:
       description: Is the device operated locally?
     resetting:
@@ -38,7 +41,7 @@ layer:
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, name, name_en, name_de, class, ref, railway_position, uic_ref, local_operated, resetting, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, name, name_en, name_de, class, ref, railway_position, uic_ref, station, local_operated, resetting, layer, rank FROM layer_railway_poi(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
 schema:
   - ./class.sql
   - ./railway_poi.sql
