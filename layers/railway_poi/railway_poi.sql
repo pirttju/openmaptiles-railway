@@ -50,6 +50,8 @@ FROM (
           AND class IN ('station')
           AND station NOT IN ('subway', 'light_rail')
 
+        UNION ALL
+
         -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z8
         -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z9
         SELECT *,
