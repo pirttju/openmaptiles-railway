@@ -2,71 +2,21 @@
 
 OpenMapTiles-Railway is a fork of OpenMapTiles focusing on railways.
 
-## OpenMapTiles
+## Railway Layers
 
-OpenMapTiles is an extensible and open tile schema based on the OpenStreetMap. This project is used to generate vector tiles for online zoomable maps. OpenMapTiles is about creating a beautiful basemaps with general layers containing topographic information. More information [openmaptiles.org](https://openmaptiles.org/) and [maptiler.com/data/](https://www.maptiler.com/data/).
+The [OpenMapTiles Schema](https://openmaptiles.org/schema/) is extended with three railway related layers:
 
-We encourage you to collaborate, reuse and adapt existing layers, or add your own layers. You may use our approach for your own vector tile project. Feel free to fork the repo and experiment. The repository is built on top of the [openmaptiles/openmaptiles-tools](https://github.com/openmaptiles/openmaptiles-tools) to simplify vector tile creation.
+### railway
 
-Please keep in mind that OpenMapTiles schema should display general topographic content. If creating a new layer or expanding an existing layer with a specific theme, please create a fork and invite other community members to cooperate on your topic. OpenMapTiles schema is used in many projects all over the world and the size of the final vector tiles needs to be considered in any update.
+Railway contains railway lines. At lower zoom levels only lines with usage=main are shown.
 
-- :link: Schema https://openmaptiles.org/schema
-- :link: Docs https://openmaptiles.org/docs
-- :link: Data for download: https://www.maptiler.com/data/
-- :link: Hosting https://www.maptiler.com/cloud/
-- :link: Create own layer https://github.com/openmaptiles/openmaptiles-skiing
-- :link: Discuss at the #openmaptiles channel at [OSM Slack](https://osmus-slack.herokuapp.com/)
+### railway_poi
 
-## Styles
+Railway Points of interests containing stations, halts, tram stops, junctions, yards, level crossings, buffer stops, switches and assorted railway amenities.
 
-You can start from several GL styles supporting the OpenMapTiles vector schema.
+### signals
 
-:link: [Learn how to create Mapbox GL styles with Maputnik and OpenMapTiles](http://openmaptiles.org/docs/style/maputnik/).
-
-
-- [OSM Bright](https://github.com/openmaptiles/osm-bright-gl-style)
-- [Positron](https://github.com/openmaptiles/positron-gl-style)
-- [Dark Matter](https://github.com/openmaptiles/dark-matter-gl-style)
-- [Klokantech Basic](https://github.com/openmaptiles/klokantech-basic-gl-style)
-- [Klokantech 3D](https://github.com/openmaptiles/klokantech-3d-gl-style)
-- [Fiord Color](https://github.com/openmaptiles/fiord-color-gl-style)
-- [Toner](https://github.com/openmaptiles/toner-gl-style)
-- [OSM Liberty](https://github.com/maputnik/osm-liberty)
-
-We also ported over our favorite old raster styles (TM2).
-
-:link: [Learn how to create TM2 styles with Mapbox Studio Classic and OpenMapTiles](http://openmaptiles.org/docs/style/mapbox-studio-classic/).
-
-- [Light](https://github.com/openmaptiles/mapbox-studio-light.tm2/)
-- [Dark](https://github.com/openmaptiles/mapbox-studio-dark.tm2/)
-- [OSM Bright](https://github.com/openmaptiles/mapbox-studio-osm-bright.tm2/)
-- [Pencil](https://github.com/openmaptiles/mapbox-studio-pencil.tm2/)
-- [Woodcut](https://github.com/openmaptiles/mapbox-studio-woodcut.tm2/)
-- [Pirates](https://github.com/openmaptiles/mapbox-studio-pirates.tm2/)
-- [Wheatpaste](https://github.com/openmaptiles/mapbox-studio-wheatpaste.tm2/)
-
-## Schema
-
-OpenMapTiles consists out of a collection of documented and self contained layers you can modify and adapt.
-Together the layers make up the OpenMapTiles tileset.
-
-:link: [Study the vector tile schema](http://openmaptiles.org/schema)
-
-- [aeroway](https://openmaptiles.org/schema/#aeroway)
-- [boundary](https://openmaptiles.org/schema/#boundary)
-- [building](https://openmaptiles.org/schema/#building)
-- [housenumber](https://openmaptiles.org/schema/#housenumber)
-- [landcover](https://openmaptiles.org/schema/#landcover)
-- [landuse](https://openmaptiles.org/schema/#landuse)
-- [mountain_peak](https://openmaptiles.org/schema/#mountain_peak)
-- [park](https://openmaptiles.org/schema/#park)
-- [place](https://openmaptiles.org/schema/#place)
-- [poi](https://openmaptiles.org/schema/#poi)
-- [transportation](https://openmaptiles.org/schema/#transportation)
-- [transportation_name](https://openmaptiles.org/schema/#transportation_name)
-- [water](https://openmaptiles.org/schema/#water)
-- [water_name](https://openmaptiles.org/schema/#water_name)
-- [waterway](https://openmaptiles.org/schema/#waterway)
+Signals containing anything tagged as railway=signal.
 
 ## Develop
 
