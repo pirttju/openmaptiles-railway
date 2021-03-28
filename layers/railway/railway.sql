@@ -14,7 +14,8 @@ CREATE OR REPLACE FUNCTION layer_railway(bbox geometry, zoom_level int)
                 name      text,
                 ref       text,
                 track_ref text,
-                maxspeed  text
+                maxspeed  text,
+                highspeed text
             )
 AS
 $$
@@ -33,7 +34,8 @@ SELECT osm_id,
        NULLIF(name, '') AS name,
        NULLIF(ref, '') AS ref,
        NULLIF(track_ref, '') AS track_ref,
-       maxspeed
+       NULLIF(maxspeed, '') AS maxspeed,
+       NULLIF(highspeed, '') AS highspeed
 FROM (
 -- etldoc: osm_railway_linestring_gen_z4  ->  layer_railway:z4
          SELECT osm_id,
@@ -48,6 +50,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z4
          WHERE zoom_level = 4
@@ -69,6 +72,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z5
          WHERE zoom_level = 5
@@ -90,6 +94,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z6
          WHERE zoom_level = 6
@@ -111,6 +116,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z7
          WHERE zoom_level = 7
@@ -132,6 +138,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z8
          WHERE zoom_level = 8
@@ -153,6 +160,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z9
          WHERE zoom_level = 9
@@ -174,6 +182,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z10
          WHERE zoom_level = 10
@@ -194,6 +203,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z11
          WHERE zoom_level = 11
@@ -213,6 +223,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring_gen_z12
          WHERE zoom_level = 12
@@ -232,6 +243,7 @@ FROM (
                 ref,
                 track_ref,
                 maxspeed,
+                highspeed,
                 z_order
          FROM osm_railway_linestring
          WHERE zoom_level >= 13

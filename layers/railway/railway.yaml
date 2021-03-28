@@ -56,10 +56,13 @@ layer:
     maxspeed:
       description: |
           Original value of the [`maxspeed`](http://wiki.openstreetmap.org/wiki/Key:maxspeed) tag.
+    highspeed:
+      description: |
+          Original value of the [`highspeed`](http://wiki.openstreetmap.org/wiki/Key:highspeed) tag.
   datasource:
     geometry_field: geometry
     srid: 900913
-    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, name, ref, track_ref, maxspeed FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, class, subclass, brunnel, service, layer, usage, name, ref, track_ref, maxspeed, highspeed FROM layer_railway(!bbox!, z(!scale_denominator!))) AS t
 schema:
   - ./class.sql
   - ./railway.sql
