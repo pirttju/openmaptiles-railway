@@ -1,5 +1,5 @@
 -- etldoc: layer_railway_poi[shape=record fillcolor=lightpink, style="rounded,filled",
--- etldoc:     label="layer_railway_poi | <z8> z8 | <z9> z9 | <z10> z10 | <z11> z11 | <z12> z12 | <z13> z13 | <z14_> z14+" ] ;
+-- etldoc:     label="layer_railway_poi | <z7> z7 | <z8> z8 | <z9> z9 | <z10> z10 | <z11> z11 | <z12> z12 | <z13> z13 | <z14_> z14+" ] ;
 
 CREATE OR REPLACE FUNCTION layer_railway_poi(bbox geometry, zoom_level integer, pixel_width numeric)
     RETURNS TABLE
@@ -41,6 +41,15 @@ SELECT osm_id_hash AS osm_id,
         ORDER BY railway_poi_class_rank(class) ASC
         )::int AS "rank"
 FROM (
+        -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z7
+        SELECT *,
+              osm_id * 10 AS osm_id_hash
+        FROM osm_railway_poi_point
+        WHERE geometry && bbox
+          AND zoom_level = 7
+          AND class IN ('station')
+          AND station NOT IN ('subway', 'light_rail')
+
         -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z8
         -- etldoc: osm_railway_poi_point ->  layer_railway_poi:z9
         SELECT *,
@@ -59,7 +68,8 @@ FROM (
         FROM osm_railway_poi_point
         WHERE geometry && bbox
           AND zoom_level = 10
-          AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt')
+          AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt',
+                        'milestone')
 
         UNION ALL
 
@@ -82,7 +92,8 @@ FROM (
         WHERE geometry && bbox
           AND zoom_level = 13
           AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt',
-                        'border', 'turntable', 'traverser', 'milestone', 'owner_change', 'tram_stop', 'radio')
+                        'border', 'turntable', 'traverser', 'milestone', 'owner_change', 'tram_stop', 'radio',
+                        'level_crossing', 'crossing')
 
         UNION ALL
 
@@ -92,6 +103,20 @@ FROM (
         FROM osm_railway_poi_point
         WHERE geometry && bbox
           AND zoom_level >= 14
+
+        UNION ALL
+
+        -- etldoc: osm_railway_poi_polygon ->  layer_railway_poi:z7
+        SELECT *,
+              CASE
+                  WHEN osm_id < 0 THEN -osm_id * 10 + 4
+                  ELSE osm_id * 10 + 1
+                  END AS osm_id_hash
+        FROM osm_railway_poi_polygon
+        WHERE geometry && bbox
+          AND zoom_level = 7
+          AND class IN ('station')
+          AND station NOT IN ('subway', 'light_rail')
 
         UNION ALL
 
@@ -106,6 +131,7 @@ FROM (
         WHERE geometry && bbox
           AND zoom_level BETWEEN 8 AND 9
           AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site')
+          AND station NOT IN ('subway', 'light_rail')
 
         UNION ALL
 
@@ -118,7 +144,8 @@ FROM (
         FROM osm_railway_poi_polygon
         WHERE geometry && bbox
           AND zoom_level = 10
-          AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt')
+          AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt',
+                        'milestone')
 
         UNION ALL
 
@@ -133,7 +160,7 @@ FROM (
         WHERE geometry && bbox
           AND zoom_level BETWEEN 11 AND 12
           AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt',
-                        'turntable', 'traverser')
+                        'border', 'turntable', 'traverser', 'milestone')
 
         UNION ALL
 
@@ -147,7 +174,8 @@ FROM (
         WHERE geometry && bbox
           AND zoom_level = 13
           AND class IN ('station', 'yard', 'junction', 'spur_junction', 'service_station', 'crossover', 'site', 'halt',
-                        'turntable', 'traverser', 'tram_stop')
+                        'border', 'turntable', 'traverser', 'milestone', 'owner_change', 'tram_stop', 'radio',
+                        'level_crossing', 'crossing')
 
         UNION ALL
 

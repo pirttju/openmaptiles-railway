@@ -144,7 +144,7 @@ FROM (
          WHERE zoom_level = 6
            AND railway = 'rail'
            AND service = ''
-           AND usage = 'main'
+           AND usage IN ('main', 'branch')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z7  ->  layer_railway:z7
@@ -164,7 +164,7 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z7
          WHERE zoom_level = 7
-           AND railway = 'rail'
+           AND railway NOT IN ('disused', 'abandoned', 'razed', 'proposed', 'construction')
            AND service = ''
            AND usage IN ('main', 'branch')
          UNION ALL
@@ -186,9 +186,9 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z8
          WHERE zoom_level = 8
-           AND railway NOT IN ('disused', 'abandoned', 'razed', 'proposed', 'construction')
            AND service = ''
            AND usage IN ('main', 'branch')
+           AND railway NOT IN ('light_rail', 'subway')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z9  ->  layer_railway:z9
@@ -208,9 +208,8 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z9
          WHERE zoom_level = 9
+           AND railway <> 'tram'
            AND service = ''
-           AND usage IN ('main', 'branch')
-           AND railway NOT IN ('light_rail', 'subway')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z10  ->  layer_railway:z10
@@ -230,8 +229,7 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z10
          WHERE zoom_level = 10
-           AND railway <> 'tram'
-           AND service = ''
+           AND railway IN ('rail', 'narrow_gauge', 'light_rail', 'subway', 'tram', 'disused', 'abandoned', 'razed', 'proposed', 'construction')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z11  ->  layer_railway:z11
@@ -251,7 +249,6 @@ FROM (
                 z_order
          FROM osm_railway_linestring_gen_z11
          WHERE zoom_level = 11
-           AND railway IN ('rail', 'narrow_gauge', 'light_rail', 'subway', 'tram', 'disused', 'abandoned', 'razed', 'proposed', 'construction')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z12  ->  layer_railway:z12
