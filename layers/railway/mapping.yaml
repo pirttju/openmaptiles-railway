@@ -1,4 +1,14 @@
 generalized_tables:
+# etldoc: osm_railway_linestring_gen_z3 -> osm_railway_linestring_gen_z2
+  railway_linestring_gen_z2:
+    source: railway_linestring_gen_z3
+    tolerance: ZRES3
+
+# etldoc: osm_railway_linestring_gen_z4 -> osm_railway_linestring_gen_z3
+  railway_linestring_gen_z3:
+    source: railway_linestring_gen_z4
+    tolerance: ZRES4
+
 # etldoc: osm_railway_linestring_gen_z5 -> osm_railway_linestring_gen_z4
   railway_linestring_gen_z4:
     source: railway_linestring_gen_z5
@@ -12,12 +22,12 @@ generalized_tables:
 # etldoc: osm_railway_linestring_gen_z7 -> osm_railway_linestring_gen_z6
   railway_linestring_gen_z6:
     source: railway_linestring_gen_z7
+    sql_filter: usage='main'
     tolerance: ZRES7
 
 # etldoc: osm_railway_linestring_gen_z8 -> osm_railway_linestring_gen_z7
   railway_linestring_gen_z7:
     source: railway_linestring_gen_z8
-    sql_filter: usage='main'
     tolerance: ZRES8
 
 # etldoc: osm_railway_linestring_gen_z9 -> osm_railway_linestring_gen_z8

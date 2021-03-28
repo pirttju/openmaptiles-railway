@@ -1,5 +1,5 @@
 -- etldoc: layer_railway[shape=record fillcolor=lightpink, style="rounded,filled",
--- etldoc:     label="<sql> layer_railway |<z4> z4 |<z5> z5 |<z6> z6 |<z7> z7 |<z8> z8 |<z9> z9 |<z10> z10 |<z11> z11 |<z12> z12|<z13> z13|<z14_> z14+" ] ;
+-- etldoc:     label="<sql> layer_railway |<z2> z2 |<z3> z3 |<z4> z4 |<z5> z5 |<z6> z6 |<z7> z7 |<z8> z8 |<z9> z9 |<z10> z10 |<z11> z11 |<z12> z12|<z13> z13|<z14_> z14+" ] ;
 CREATE OR REPLACE FUNCTION layer_railway(bbox geometry, zoom_level int)
     RETURNS TABLE
             (
@@ -37,7 +37,51 @@ SELECT osm_id,
        NULLIF(maxspeed, '') AS maxspeed,
        NULLIF(highspeed, '') AS highspeed
 FROM (
--- etldoc: osm_railway_linestring_gen_z4  ->  layer_railway:z4
+         -- etldoc: osm_railway_linestring_gen_z2  ->  layer_railway:z2
+         SELECT osm_id,
+                geometry,
+                railway,
+                railway_service_value(service) AS service,
+                is_bridge,
+                is_tunnel,
+                layer,
+                usage,
+                name,
+                ref,
+                track_ref,
+                maxspeed,
+                highspeed,
+                z_order
+         FROM osm_railway_linestring_gen_z2
+         WHERE zoom_level = 2
+           AND railway = 'rail'
+           AND service = ''
+           AND usage = 'main'
+         UNION ALL
+
+         -- etldoc: osm_railway_linestring_gen_z3  ->  layer_railway:z3
+         SELECT osm_id,
+                geometry,
+                railway,
+                railway_service_value(service) AS service,
+                is_bridge,
+                is_tunnel,
+                layer,
+                usage,
+                name,
+                ref,
+                track_ref,
+                maxspeed,
+                highspeed,
+                z_order
+         FROM osm_railway_linestring_gen_z3
+         WHERE zoom_level = 3
+           AND railway = 'rail'
+           AND service = ''
+           AND usage = 'main'
+         UNION ALL
+
+         -- etldoc: osm_railway_linestring_gen_z4  ->  layer_railway:z4
          SELECT osm_id,
                 geometry,
                 railway,
@@ -122,7 +166,7 @@ FROM (
          WHERE zoom_level = 7
            AND railway = 'rail'
            AND service = ''
-           AND usage = 'main'
+           AND usage IN ('main', 'branch')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z8  ->  layer_railway:z8
