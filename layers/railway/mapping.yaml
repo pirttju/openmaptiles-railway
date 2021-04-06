@@ -12,12 +12,12 @@ generalized_tables:
 # etldoc: osm_railway_linestring_gen_z5 -> osm_railway_linestring_gen_z4
   railway_linestring_gen_z4:
     source: railway_linestring_gen_z5
+    sql_filter: usage='main'
     tolerance: ZRES5
 
 # etldoc: osm_railway_linestring_gen_z6 -> osm_railway_linestring_gen_z5
   railway_linestring_gen_z5:
     source: railway_linestring_gen_z6
-    sql_filter: usage='main'
     tolerance: ZRES6
 
 # etldoc: osm_railway_linestring_gen_z7 -> osm_railway_linestring_gen_z6

@@ -122,7 +122,7 @@ FROM (
          WHERE zoom_level = 5
            AND railway = 'rail'
            AND service = ''
-           AND usage = 'main'
+           AND usage IN ('main', 'branch')
          UNION ALL
 
          -- etldoc: osm_railway_linestring_gen_z6  ->  layer_railway:z6
